@@ -2,6 +2,9 @@ import tornado.ioloop
 import tornado.web
 import json
 import IPy
+import sys
+
+sys.path.append('lib')
 import netcalc
 
 def calculate_network_info(net_input):
