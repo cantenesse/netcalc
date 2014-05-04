@@ -1,0 +1,22 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-12.04
+    driver:
+      synced_folders: [["../", "/netcalc"]]
+      network:
+        - ["forwarded_port", {guest: 8888, host: 8888}]
+
+suites:
+  - name: default
+    run_list:
+      - recipe[netcalc::default]
+    attributes:
+      netcalc:
+        app:
+          install_type: local
