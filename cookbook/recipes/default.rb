@@ -7,4 +7,5 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "netcalc::app"
+include_recipe 'netcalc::app'
+include_recipe 'netcalc::database'

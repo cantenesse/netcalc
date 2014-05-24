@@ -7,13 +7,14 @@ long_description 'Installs/Configures netcalc'
 version File.read(File.join(File.dirname(__FILE__), "..", "VERSION"))
 
 depends 'apt'
+depends 'mysql'
+depends 'database'
 
 recipe 'netcalc::default', 'Installs a full stack netcalc server'
 recipe 'netcalc::app', 'Installs a netcalc application server'
 
-attribute 'netcalc/app/port'
+attribute 'netcalc/app/port',
     display_name: 'App Server Port',
     description: 'Listen port for application server',
-    type: 'integer'
-    default: 8888
-    
+    type: 'string',
+    default: '80'
